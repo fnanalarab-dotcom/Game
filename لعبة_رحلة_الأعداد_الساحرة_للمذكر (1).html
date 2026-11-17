@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>رحلة الأعداد الساحرة | أحكام العدد</title>
+<style>
+:root{--ink:#26304a;--purple:#7357c8;--pink:#f27eaa;--gold:#f5c85b;--mint:#63cdb8;--paper:#fffdf8}
+*{box-sizing:border-box}
+body{margin:0;font-family:Tahoma,Arial,sans-serif;color:var(--ink);background:radial-gradient(circle at 12% 12%,#ffe3ef 0 8%,transparent 25%),radial-gradient(circle at 90% 20%,#d9f8f0 0 8%,transparent 25%),linear-gradient(135deg,#f7f0ff,#fff8e9 55%,#eafaff);min-height:100vh}
+.wrap{width:min(920px,94%);margin:24px auto 50px}
+.hero{position:relative;overflow:hidden;text-align:center;padding:28px 18px 24px;border-radius:28px;background:linear-gradient(120deg,#7254c7,#a76bd1 55%,#e77fa8);color:white;box-shadow:0 14px 34px #5d469333}
+.hero:before,.hero:after{content:"✦";position:absolute;font-size:48px;color:#ffe38a;opacity:.85}.hero:before{top:10px;right:24px}.hero:after{bottom:4px;left:28px}
+.kicker{font-size:14px;letter-spacing:1px;color:#ffedb5}.hero h1{font-size:clamp(27px,5vw,42px);margin:8px 0}.hero p{margin:8px 0 0;font-size:16px}
+.panel{background:#ffffffdc;border:1px solid #fff;border-radius:24px;padding:22px;margin-top:18px;box-shadow:0 10px 28px #65508c12}
+.intro{text-align:center}.intro h2{margin:0 0 10px;color:#704fc1}.intro p{line-height:1.9;margin:8px 0}
+button{border:0;border-radius:15px;padding:13px 22px;font: bold 16px Tahoma;cursor:pointer;transition:.18s}
+button:hover{transform:translateY(-2px);filter:brightness(1.03)}
+.primary{background:linear-gradient(120deg,#7556c8,#a16ad2);color:#fff;box-shadow:0 7px 16px #7556c833}
+.secondary{background:#f1ebff;color:#654bb0}
+.topline{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-bottom:14px}
+.progressbox{flex:1;min-width:180px}.progress-label{display:flex;justify-content:space-between;font-size:13px;margin-bottom:7px;color:#716b85}
+.track{height:10px;background:#eee8fa;border-radius:20px;overflow:hidden}.bar{height:100%;width:0;background:linear-gradient(90deg,#64cfb9,#8b68d4);transition:width .3s}
+.tag{padding:8px 13px;border-radius:30px;background:#fff3d1;color:#765716;font-weight:bold;font-size:13px}
+.question{font-size:clamp(19px,3vw,25px);font-weight:bold;line-height:1.9;margin:14px 0 18px}
+.instruction{color:#7c7194;font-size:14px;margin:0 0 10px}
+.answers{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.answer{background:#fff;border:2px solid #eee7fa;text-align:right;color:#35334a;line-height:1.65;min-height:66px}
+.answer:hover{border-color:#9b80dc;background:#faf7ff}
+.answer.correct{border-color:#55bea5;background:#e8fbf5;color:#176e5a}
+.answer.wrong{border-color:#ef8aa8;background:#fff0f4;color:#9d3153}
+.feedback{display:none;padding:13px 16px;border-radius:15px;margin-top:15px;line-height:1.8}
+.feedback.show{display:block}.feedback.good{background:#e7faf4;color:#176b57}.feedback.bad{background:#fff0f4;color:#96314f}
+.actions{display:flex;justify-content:space-between;gap:10px;margin-top:18px;flex-wrap:wrap}
+.small{font-size:13px;color:#817991;text-align:center;margin-top:16px}
+.hidden{display:none!important}
+.result{text-align:center}.result h2{color:#6c50bd}.score{font-size:42px;font-weight:bold;color:#7658c6;margin:12px}
+.certificate-wrap{margin-top:20px;background:#fff;border-radius:18px;padding:12px;border:1px solid #eadff8}
+#certificate{width:100%;height:auto;display:block;border-radius:10px}
+.cert-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:15px}
+footer{text-align:center;color:#7b718e;font-size:13px;margin:18px 0}
+@media(max-width:600px){.answers{grid-template-columns:1fr}.panel{padding:17px}.hero{padding:24px 12px}}
+@media print{body{background:white}.wrap>*:not(#result){display:none!important}#result{display:block!important}.result>h2,.result>p,.score,.cert-actions,.small{display:none!important}.certificate-wrap{border:0;padding:0;margin:0}#certificate{width:100%;max-height:95vh;object-fit:contain}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="hero">
+  <div class="kicker">لعبة صفية تفاعلية • اللغة العربية</div>
+  <h1>✨ رحلة الأعداد الساحرة ✨</h1>
+  <p>مغامرة ممتعة في تحويل الأعداد إلى كلمات وإتقان أحكام العدد</p>
+</header>
+
+<section class="panel intro" id="start">
+  <h2>أهلًا بكَ أيها اللغوي الصغير! 🌷</h2>
+  <p>استعدَّ لعبور محطات الأعداد. اختر الإجابة الصحيحة في كل سؤال، واجمع النجوم حتى تصل إلى شهادة التميّز.</p>
+  <p><b>تذكّري:</b> انتبهي إلى نوع المعدود، وموقع العدد في الجملة، وما يلزم تغييره عند كتابة العدد بالحروف.</p>
+  <button class="primary" onclick="startGame()">ابدأ المغامرة 🚀</button>
+  <div class="small">١٢ محطة • تغذية راجعة فورية • شهادة إنجاز قابلة للحفظ</div>
+</section>
+
+<section class="panel hidden" id="game">
+  <div class="topline">
+    <div class="progressbox"><div class="progress-label"><span id="stepLabel">السؤال ١ من ١٢</span><span id="percent">٠٪</span></div><div class="track"><div class="bar" id="bar"></div></div></div>
+    <div class="tag">⭐ نقاطك: <span id="score">٠</span></div>
+  </div>
+  <div class="instruction">اختر الصياغة الصحيحة للعدد، ثم تحقّق من إجابتك.</div>
+  <div class="question" id="question"></div>
+  <div class="answers" id="answers"></div>
+  <div class="feedback" id="feedback" aria-live="polite"></div>
+  <div class="actions">
+    <button class="secondary" onclick="restartGame()">إعادة من البداية ↻</button>
+    <button class="primary" id="next" onclick="nextQuestion()" disabled>المحطة التالية ←</button>
+  </div>
+</section>
+
+<section class="panel result hidden" id="result">
+  <h2>🎉 أحسنتَ! وصلتَ إلى نهاية الرحلة</h2>
+  <p>أكملتَ جميع محطات أحكام العدد، وهذا إنجاز يستحق الاحتفاء.</p>
+  <div class="score"><span id="finalScore">٠</span> / ١٢</div>
+  <p id="resultMessage"></p>
+  <div class="certificate-wrap"><canvas id="certificate" width="1400" height="990" aria-label="شهادة إنجاز"></canvas></div>
+  <div class="cert-actions">
+    <button class="primary" onclick="downloadCertificate()">تحميل الشهادة PNG ⬇</button>
+    <button class="secondary" onclick="printCertificate()">حفظ الشهادة PDF / طباعة 🖨</button>
+    <button class="secondary" onclick="restartGame()">إعادة اللعب ↻</button>
+  </div>
+  <div class="small">للحفظ بصيغة PDF: اختاري «حفظ بتنسيق PDF» من نافذة الطباعة.</div>
+</section>
+<footer>بالعربية نرتقي، وبالعلم نبدع 💜</footer>
+</div>
+<script>
+const questions = [
+ {q:"مات يوم أُحد ______ شهيدًا من المسلمين.",a:["سبعون","سبعين","سبعةون","سبعة وسبعون"],c:0,e:"سبعون: عدد معطوف على معنى الفاعل ومرفوع بالواو، وتمييزه مفرد منصوب: شهيدًا."},
+ {q:"كان بين المسلمين ______ مهاجرين.",a:["أربعة","أربع","أربعون","أربعمئة"],c:0,e:"أربعة مهاجرين؛ لأن مفرد المعدود مذكر، والأعداد من ٣ إلى ١٠ تخالف المعدود."},
+ {q:"قُتل يوم أُحد ______ رجلًا من المشركين.",a:["ثلاثة وعشرون","ثلاثًا وعشرين","ثلاث وعشرون","ثلاثة وعشرين"],c:0,e:"ثلاثة وعشرون رجلًا: ثلاثة تخالف المعدود، والجزء الأول مرفوع هنا، وتمييز ٢١–٩٩ مفرد منصوب."},
+ {q:"يعمل في المصنع ______ عاملًا، و______ عاملة.",a:["تسعون، اثنتا عشرة","تسعين، اثنا عشر","تسعون، اثنا عشر","تسعين، اثنتي عشرة"],c:0,e:"تسعون عاملًا: العدد مرفوع بالواو. اثنتا عشرة عاملة: العدد يوافق المعدود المؤنث."},
+ {q:"شارك في المشغل الحرفي ______ امرأة، و______ رجلًا.",a:["سبع عشرة، اثنان وثلاثون","سبعة عشر، اثنتان وثلاثون","سبع عشر، اثنين وثلاثين","سبعة عشرة، اثنان وثلاثين"],c:0,e:"سبع عشرة امرأة: الجزءان يوافقان المعدود المؤنث. اثنان وثلاثون رجلًا: اثنان يوافق المعدود المذكر."},
+ {q:"صرفتُ الأسبوع الماضي ______ ريال، واشتريتُ ______ مجلة.",a:["ألف، تسعًا وأربعين","ألفًا، تسعة وأربعون","ألف، تسعة وأربعين","ألفين، تسع وأربعون"],c:0,e:"ألف ريال، وتسعًا وأربعين مجلة. تمييز ألف مفرد مجرور بالإضافة، وتمييز ٤٩ مفرد منصوب."},
+ {q:"يبلغ عدد الوافدين في السلطنة أكثر من ______ وافد.",a:["مليون","مليونًا","ملايينَ","مئة ألف"],c:0,e:"مليون وافد: جاء العدد بعد أكثر من، وتمييز مليون مفرد مجرور بالإضافة."},
+ {q:"كرّم المدير ______ طالبًا.",a:["ثمانية وأربعين","ثمانية وأربعون","ثمان وأربعين","ثماني وأربعون"],c:0,e:"ثمانية وأربعين طالبًا: العدد منصوب لأنه مفعول به، والجزء المعطوف يتبعه في الإعراب."},
+ {q:"ساهم الرجال بـ ______ ريال.",a:["مئة وخمسة وسبعين","مئة وخمسة وسبعون","مئة وخمس وسبعين","مئة وخمسون وسبعة"],c:0,e:"مئة وخمسة وسبعين ريالًا: خمسة تخالف المعدود المذكر، والعدد مجرور بالباء."},
+ {q:"عدد المسلمين في معركة بدر ______ رجلًا تقريبًا.",a:["ثلاثمئة وتسعة عشر","ثلاثمئة وتسعة عشرة","ثلاثمئة وتسع عشرة","ثلاثمئة وتسعة عشرًا"],c:0,e:"ثلاثمئة وتسعة عشر رجلًا: تسعة تخالف المعدود المذكر، وتمييز العدد مفرد منصوب."},
+ {q:"في المدينة ______ حديقتان، وفي كل واحدة ______ مظلة.",a:["حديقتان، إحدى عشرة","حديقتين، أحد عشر","حديقتان، أحد عشر","حديقتين، إحدى عشر"],c:0,e:"حديقتان: مثنى مرفوع بالألف. إحدى عشرة مظلة: العدد يوافق المعدود المؤنث."},
+ {q:"زرع الفلاح ______ شجرةً مثمرةً.",a:["خمس عشرة","خمسة عشر","خمسة عشرة","خمس عشر"],c:0,e:"خمس عشرة شجرة: العددان يوافقان المعدود المؤنث في الأعداد المركبة ١٣–١٩."}
+];
+let index=0, score=0, answered=false;
+const arNums=n=>String(n).replace(/[0-9]/g,d=>"٠١٢٣٤٥٦٧٨٩"[d]);
+function startGame(){document.getElementById("start").classList.add("hidden");document.getElementById("result").classList.add("hidden");document.getElementById("game").classList.remove("hidden");index=0;score=0;render()}
+function render(){
+ answered=false;const q=questions[index];
+ document.getElementById("question").textContent=q.q;
+ document.getElementById("stepLabel").textContent=`السؤال ${arNums(index+1)} من ${arNums(questions.length)}`;
+ document.getElementById("percent").textContent=arNums(Math.round(index/questions.length*100))+"٪";
+ document.getElementById("bar").style.width=(index/questions.length*100)+"%";
+ document.getElementById("score").textContent=arNums(score);
+ document.getElementById("feedback").className="feedback";document.getElementById("feedback").textContent="";
+ document.getElementById("next").disabled=true;document.getElementById("next").textContent=index===questions.length-1?"عرض النتيجة 🏆":"المحطة التالية ←";
+ const box=document.getElementById("answers");box.innerHTML="";
+ q.a.forEach((v,i)=>{const b=document.createElement("button");b.className="answer";b.textContent=(i+1)+" • "+v;b.onclick=()=>choose(i,b);box.appendChild(b)});
+}
+function choose(i,btn){
+ if(answered)return;answered=true;const q=questions[index],buttons=[...document.querySelectorAll(".answer")];
+ buttons.forEach((b,j)=>{b.disabled=true;if(j===q.c)b.classList.add("correct")});
+ const f=document.getElementById("feedback");
+ if(i===q.c){score++;btn.classList.add("correct");f.className="feedback show good";f.innerHTML="إجابة صحيحة! أحسنتَ 🌟<br>"+q.e}
+ else{btn.classList.add("wrong");f.className="feedback show bad";f.innerHTML="محاولة جميلة، لنثبت القاعدة معًا 💡<br>الإجابة الصحيحة: <b>"+q.a[q.c]+"</b><br>"+q.e}
+ document.getElementById("score").textContent=arNums(score);document.getElementById("next").disabled=false;
+}
+function nextQuestion(){if(!answered)return;if(index<questions.length-1){index++;render()}else finish()}
+function finish(){
+ document.getElementById("game").classList.add("hidden");document.getElementById("result").classList.remove("hidden");
+ document.getElementById("finalScore").textContent=arNums(score);
+ document.getElementById("resultMessage").textContent=score>=10?"مبدع! إتقان رائع لأحكام العدد.":"أحسنتَ المحاولة! أعد الرحلة لتزداد مهارتك رسوخًا.";
+ drawCertificate();
+}
+function restartGame(){startGame();window.scrollTo({top:0,behavior:"smooth"})}
+function drawCertificate(){
+ const c=document.getElementById("certificate"),ctx=c.getContext("2d"),w=c.width,h=c.height;
+ ctx.clearRect(0,0,w,h);ctx.fillStyle="#fffaf0";ctx.fillRect(0,0,w,h);
+ const g=ctx.createLinearGradient(0,0,w,h);g.addColorStop(0,"#7657c8");g.addColorStop(.5,"#d978a7");g.addColorStop(1,"#58c7b5");
+ ctx.strokeStyle=g;ctx.lineWidth=24;ctx.strokeRect(25,25,w-50,h-50);ctx.lineWidth=5;ctx.strokeRect(48,48,w-96,h-96);
+ function star(x,y,r,color){ctx.save();ctx.translate(x,y);ctx.fillStyle=color;ctx.beginPath();for(let i=0;i<10;i++){let a=-Math.PI/2+i*Math.PI/5,rr=i%2?r*.45:r;ctx.lineTo(Math.cos(a)*rr,Math.sin(a)*rr)}ctx.closePath();ctx.fill();ctx.restore()}
+ [[120,130,28],[1280,140,24],[115,850,20],[1280,850,30],[700,115,17]].forEach(s=>star(...s,"#efbd50"));
+ ctx.textAlign="center";ctx.fillStyle="#7555bf";ctx.font="bold 46px Tahoma";ctx.fillText("شهادة إنجاز وتميّز",w/2,230);
+ ctx.fillStyle="#d58a37";ctx.font="bold 30px Tahoma";ctx.fillText("رحلة الأعداد الساحرة",w/2,300);
+ ctx.fillStyle="#4b4661";ctx.font="30px Tahoma";ctx.fillText("تُمنح هذه الشهادة للطالب المتميز",w/2,410);
+ ctx.fillStyle="#7555bf";ctx.font="bold 58px Tahoma";ctx.fillText("بطلة أحكام العدد",w/2,510);
+ ctx.fillStyle="#4b4661";ctx.font="29px Tahoma";ctx.fillText("لإتمامها محطات اللعبة وتحقيقها",w/2,590);
+ ctx.fillStyle="#15977f";ctx.font="bold 42px Tahoma";ctx.fillText(arNums(score)+" من "+arNums(questions.length)+" نقطة",w/2,660);
+ ctx.fillStyle="#8a6bbd";ctx.font="26px Tahoma";ctx.fillText("دام تميّزك وتألقك في رحاب اللغة العربية",w/2,745);
+ ctx.fillStyle="#5c4a83";ctx.font="bold 25px Tahoma";ctx.fillText("الأستاذة محفوظة السيابي – بثينة ورد",w/2,850);
+ ctx.fillStyle="#b18a42";ctx.font="22px Tahoma";ctx.fillText("١٤٤٨هـ • ٢٠٢٦م",w/2,900);
+}
+function downloadCertificate(){
+ const c=document.getElementById("certificate"),a=document.createElement("a");a.download="شهادة-رحلة-الأعداد.png";a.href=c.toDataURL("image/png");a.click();
+}
+function printCertificate(){window.print()}
+</script>
+</body>
+</html>
